@@ -1,10 +1,27 @@
 package com.mark.es.model;
 
+import org.springframework.data.elasticsearch.annotations.Document;
+
+@Document(indexName="user",indexStoreType="fs",type="info",shards=5,replicas=1,refreshInterval="-1")
 public class User {
 	private Long id; 
 	private String name;
 	private int age ;
+	private String school;
+	private String occupation;
 	
+	public String getSchool() {
+		return school;
+	}
+	public void setSchool(String school) {
+		this.school = school;
+	}
+	public String getOccupation() {
+		return occupation;
+	}
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -27,7 +44,8 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", age=" + age + "]";
+		return "User [id=" + id + ", name=" + name + ", age=" + age + ", school=" + school + ", occupation="
+				+ occupation + "]";
 	}
 
 }
